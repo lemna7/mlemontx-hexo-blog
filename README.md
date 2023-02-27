@@ -1,2 +1,2 @@
-# mlemon-blog
-肉柠檬的博客
+# mlemon-hexo-blog
+肉柠檬的`hexo`博客
