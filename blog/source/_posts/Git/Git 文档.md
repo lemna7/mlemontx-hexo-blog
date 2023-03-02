@@ -1,7 +1,11 @@
 ---
 title: Git 文档
-tags: Git
-categories: Git
+tags: 
+    - Git
+categories: 
+    - Git
+top_img: /img/cover/xqtd001.jpg
+cover: /img/cover/xqtd001.jpg
 ---
 
 ## 配置 Git

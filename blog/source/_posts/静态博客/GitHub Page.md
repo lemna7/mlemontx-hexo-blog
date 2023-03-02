@@ -1,7 +1,11 @@
 ---
 title: GitHub Page
-tags: 静态博客
-categories: 静态博客
+tags: 
+    - 静态博客
+categories: 
+    - 静态博客
+top_img: /img/cover/xqtd002.jpg
+cover: /img/cover/xqtd002.jpg
 ---
 
 ##  创建仓库

@@ -1,7 +1,11 @@
 ---
 title: 搭建 Hexo
-tags: 静态博客
-categories: 静态博客
+tags: 
+    - 静态博客
+categories: 
+    - 静态博客
+top_img: /img/cover/xqtd003.jpg
+cover: /img/cover/xqtd003.jpg
 ---
 
 ## 下载 node
