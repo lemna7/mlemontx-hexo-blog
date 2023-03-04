@@ -4,8 +4,8 @@ tags:
     - Git
 categories: 
     - Git
-top_img: /img/cover/xqtd001.jpg
-cover: /img/cover/xqtd001.jpg
+top_img: https://s2.loli.net/2023/03/04/QOXpB1aPdmvrsDc.webp
+cover: https://s2.loli.net/2023/03/04/QOXpB1aPdmvrsDc.webp
 ---
 
 ## 配置 Git

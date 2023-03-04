@@ -4,8 +4,8 @@ tags:
     - 静态博客
 categories: 
     - 静态博客
-top_img: /img/cover/xqtd003.jpg
-cover: /img/cover/xqtd003.jpg
+top_img: https://s2.loli.net/2023/03/04/iKdrjeWuLOgUxyR.webp
+cover: https://s2.loli.net/2023/03/04/iKdrjeWuLOgUxyR.webp
 ---
 
 ## 下载 node

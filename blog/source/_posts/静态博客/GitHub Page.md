@@ -4,8 +4,8 @@ tags:
     - 静态博客
 categories: 
     - 静态博客
-top_img: /img/cover/xqtd002.jpg
-cover: /img/cover/xqtd002.jpg
+top_img: https://s2.loli.net/2023/03/04/dCMLXSRH4F87qhV.webp
+cover: https://s2.loli.net/2023/03/04/dCMLXSRH4F87qhV.webp
 ---
 
 ##  创建仓库
