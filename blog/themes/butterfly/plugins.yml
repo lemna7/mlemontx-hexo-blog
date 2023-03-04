@@ -206,5 +206,5 @@ docsearch_js:
 docsearch_css:
   name: '@docsearch/css'
   other_name: docsearch-css
-  file: dist/style.css
+  file: dist/index.css
   version: 3.3.3
