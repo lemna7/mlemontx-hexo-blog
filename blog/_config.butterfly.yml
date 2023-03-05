@@ -146,7 +146,21 @@ cover:
    - https://s2.loli.net/2023/03/04/ZrjCm81ywWDK5PL.webp
    - https://s2.loli.net/2023/03/04/gWAO5PtI2xuV6fs.webp
    - https://s2.loli.net/2023/03/04/nVvoyNFSQWMgepl.webp
-  # - https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg
+   - https://s2.loli.net/2023/03/05/smzEuBa7gxlIDfC.webp
+   - https://s2.loli.net/2023/03/05/FvxB9na5HTpqNKZ.webp
+   - https://s2.loli.net/2023/03/05/6Tziowe925haQbE.webp
+   - https://s2.loli.net/2023/03/05/fiI8uWCs2kSJXHM.webp
+   - https://s2.loli.net/2023/03/05/2smQSZADqYJkrzH.webp
+   - https://s2.loli.net/2023/03/05/s3BIUmNvG54i7My.webp
+   - https://s2.loli.net/2023/03/05/djGAlCKVqxp5Yr6.webp
+   - https://s2.loli.net/2023/03/05/BVJ57pRCEDyxNAF.webp
+   - https://s2.loli.net/2023/03/05/2AyDMqYea1Rsbkp.webp
+   - https://s2.loli.net/2023/03/05/rGCEwoALtSBmUcI.webp
+   - https://s2.loli.net/2023/03/05/QHuXa9fjdek5TgG.webp
+   - https://s2.loli.net/2023/03/05/DU6hp85clEdX4Bk.webp
+   - https://s2.loli.net/2023/03/05/nuXizhLtWVaqbNK.webp
+   - https://s2.loli.net/2023/03/05/QyPEzVbM5vIU2Z3.webp
+   - https://s2.loli.net/2023/03/05/EcU3fJHVtuT2gXP.webp
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
@@ -339,7 +353,7 @@ valine:
 # waline - A simple comment system with backend support fork from Valine
 # https://waline.js.org/
 waline:
-  serverURL: https://hexo-waline-cths.vercel.app/
+  serverURL: https://vercel-waline.yylemon.top/
   bg: # waline background
   pageview: false
   option:
@@ -621,10 +635,10 @@ beautify:
 # Global font settings
 # Don't modify the following settings unless you know how they work (非必要不要修改)
 font:
-  global-font-size:
+  global-font-size: 16px
   code-font-size:
-  font-family: STZhongsong, "Microsoft YaHei"
-  code-font-family: consolas
+  font-family: HYTangMeiRen, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif
+  code-font-family: consolas, "PingFang SC", "Microsoft YaHei", sans-serif
 
 # Font settings for the site title and site subtitle
 # 左上角網站名字 主頁居中網站名字
@@ -901,6 +915,7 @@ inject:
    - <link rel="stylesheet" href="/css/constant.css">
    - <link rel="stylesheet" href="/css/loading.css">
    - <link rel="stylesheet" href="/css/nav.css">
+   - <link rel="stylesheet" href="/css/iconfont.css">
   bottom:
    - <script defer src="https://fastly.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script>
    - <script src="/js/nav.js"></script>

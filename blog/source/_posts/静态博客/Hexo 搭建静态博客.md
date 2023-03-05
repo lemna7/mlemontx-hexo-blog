@@ -17,7 +17,7 @@ cover: https://s2.loli.net/2023/03/04/iKdrjeWuLOgUxyR.webp
 
 ## npm 相关
 
-### ERROR
+## ERROR
 
 ```txt
 问题：
@@ -27,7 +27,7 @@ npm : 无法将“npm”项识别为 cmdlet、函数、脚本文件或可运行�
 权限不足，用管理员运行软件。
 ```
 
-### 更改 npm 源
+## 更改 npm 源
 
 查看现在的源
 
@@ -43,7 +43,7 @@ npm config set registry https://registry.npm.taobao.org
 
 ## 搭建 hexo 环境
 
-### 安装 hexo 脚手架
+## 安装 hexo 脚手架
 
 新建博客目录：我这里是 github 仓库名 `mlemontx.github.io`，进入目录 `cmd` 执行改命令...
 
@@ -51,7 +51,7 @@ npm config set registry https://registry.npm.taobao.org
 npm install -g hexo-cli
 ```
 
-### 安装 hexo
+## 安装 hexo
 
 ```cmd
 npm install hexo
@@ -59,7 +59,7 @@ npm install hexo
 
 ## 建站
 
-### ERROR
+## ERROR
 
 ```text
 问题：
@@ -70,7 +70,7 @@ hexo : 无法加载文件 D:\Environment\node\node-v12.13.0-win-x64\hexo.ps1，�
 输入：set-ExecutionPolicy RemoteSigned
 ```
 
-### 初始化
+## 初始化
 
 1. 初始化
 ```cmd
@@ -81,7 +81,7 @@ hexo init blog
 
 `_config.yml` 文件
 
-### 本地运行
+## 本地运行
 
 安装服务
 

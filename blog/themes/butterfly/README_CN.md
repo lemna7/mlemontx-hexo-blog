@@ -22,7 +22,7 @@
 
 ## 💻 安裝
 
-### Git 安裝
+## Git 安裝
 
 > 本倉庫同時上傳到 [Gitee](https://gitee.com/immyw/hexo-theme-butterfly.git)，如果你訪問 Github 緩慢，可從 Gitee 中下載。
 
@@ -38,7 +38,7 @@ git clone -b master https://github.com/jerryc127/hexo-theme-butterfly.git themes
 git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
 ```
 
-### npm 安裝
+## npm 安裝
 
 > 此方法只支持Hexo 5.0.0以上版本
 

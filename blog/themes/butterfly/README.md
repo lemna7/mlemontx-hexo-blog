@@ -22,7 +22,7 @@ Based on [hexo-theme-melody](https://github.com/Molunerfinn/hexo-theme-melody) t
 
 ## 💻 Installation
 
-### GIT
+## GIT
 
 > If you are in Mainland China, you can download in [Gitee](https://gitee.com/immyw/hexo-theme-butterfly.git)
 
@@ -38,7 +38,7 @@ Dev branch:
 git clone -b dev https://github.com/jerryc127/hexo-theme-butterfly.git themes/butterfly
 ```
 
-### NPM
+## NPM
 
 > It supports Hexo 5.0.0 or later
 
