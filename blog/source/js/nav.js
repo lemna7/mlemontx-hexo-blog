@@ -27,12 +27,12 @@ function tonav() {
         position = scroll;
 
     });
-
-    function scrollToTop() {
-        document.getElementsByClassName("menus_items")[1].setAttribute("style", "");
-        document.getElementById("name-container").setAttribute("style", "display:none");
-        btf.scrollToDest(0, 500);
-    }
-
-    document.getElementById("page-name").innerText = document.title.split(" |柠檬mlemontx")[0];
 }
+
+function scrollToTop() {
+    document.getElementsByClassName("menus_items")[1].setAttribute("style", "");
+    document.getElementById("name-container").setAttribute("style", "display:none");
+    btf.scrollToDest(0, 500);
+}
+
+document.getElementById("page-name").innerText = document.title.split(" |柠檬mlemontx")[0];
