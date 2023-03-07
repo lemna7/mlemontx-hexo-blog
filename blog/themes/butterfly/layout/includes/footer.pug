@@ -6,12 +6,26 @@
       .copyright!= `&copy;${theme.footer.owner.since} - ${nowYear} By ${config.author}`
     else
       .copyright!= `&copy;${nowYear} By ${config.author}`
-  if theme.footer.copyright
-    .framework-info
-      span= _p('footer.framework') + ' '
-      a(href='https://hexo.io')= 'Hexo'
-      span.footer-separator |
-      span= _p('footer.theme') + ' '
-      a(href='https://github.com/jerryc127/hexo-theme-butterfly')= 'Butterfly'
   if theme.footer.custom_text
     .footer_custom_text!=`${theme.footer.custom_text}`
+  #footer-word-count=`▹柠檬mlemontx居然写了「${totalcount(site)}」字，好像写完一本『埃克苏佩里』的《小王子》了啊◃`
+  #footer-time-info
+    span#day-time= '载入天数...'
+    span#times= '载入时分秒...'
+script.
+  if (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
+    function timeInfo() {
+      const startTimeStamp = new Date('2023-06-25 00:00:00').getTime();
+      const endTimeStamp = new Date().getTime();
+      const timeStamp = (endTimeStamp - startTimeStamp) / 1000;
+      const days = Math.floor(timeStamp / 60 / 60 / 24);
+      const hours = Math.floor(timeStamp / 60 / 60 % 24);
+      const minutes = Math.floor(timeStamp /60 % 60);
+      const seconds = Math.floor(timeStamp % 60);
+      document.getElementById("day-time").innerHTML = `自 2023-06-25 建站以来，小站已苟活 ${days} 天 `;
+      document.getElementById("times").innerHTML = `${hours} 时 ${minutes} 分 ${seconds} 秒 ( =•ω•= )m`;
+    }
+
+    setInterval(timeInfo, 1000);
+  }
+

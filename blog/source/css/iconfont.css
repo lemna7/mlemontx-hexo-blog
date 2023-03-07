@@ -1,10 +1,7 @@
-@font-face {
-    font-family: 'HYTangMeiRen';
-    font-display: swap;
-    src: url('/css/HYTangMeiRen55W.ttf');
-    src: url('/css/HYTangMeiRen55W.ttf') format('embedded-opentype'),
-    url('/css/HYTangMeiRen55W.ttf') format('woff2'),
-    url('/css/HYTangMeiRen55W.ttf') format('woff'),
-    url('/css/HYTangMeiRen55W.ttf') format('truetype'),
-    url('/css/HYTangMeiRen55W.ttf') format('svg');
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
 }
