@@ -1,4 +1,16 @@
 #footer-wrap
+  div(id='footer-icon')
+    dev(id='footer-avatar-left')
+      a(class='avatar-link' href='/link/' title='友链')
+        i(class='fa-solid fa-link fa-fw')
+      a(class='avatar-link' href='/message/' title='留言')
+        i(class='fa-regular fa-comment fa-fw')
+    img(id='footer-avatar' src='//s2.loli.net/2023/03/04/aBsd12DAvGUtob9.png' onclick='btf.scrollToDest(0,500)' title='返回顶部')
+    dev(id='footer-avatar-right')
+      a(class='avatar-link' target='-blank' href='https://res.abeim.cn/api/qq/?qq=10845535' rel='noopener external nofollow' title='联系QQ')
+        i(class='fa-brands fa-qq fa-fw')
+      a(class='avatar-link' href='mailto:10845535@qq.com' rel='noopener external nofollow' title='邮件联系')
+        i(class='fa-solid fa-envelope fa-fw')
   if theme.footer.owner.enable
     - var now = new Date()
     - var nowYear = now.getFullYear()
@@ -12,6 +24,17 @@
   #footer-time-info
     span#day-time= '载入天数...'
     span#times= '载入时分秒...'
+  div(id='footer-badge' style='margin:14px 0px 14px 0px')
+    a(target='_blank' href='https://hexo.io/' style='margin-inline:5px')
+      img(src='/img/footer-badge/hexo.svg')
+    a(target='_blank' href='https://butterfly.js.org/' style='margin-inline:5px')
+      img(src='/img/footer-badge/butterfly.svg')
+    a(target='_blank' href='https://github.com/' style='margin-inline:5px')
+      img(src='/img/footer-badge/github.svg')
+    a(target='_blank' href='https://icp.gov.moe/' style='margin-inline:5px')
+      img(src='/img/footer-badge/gov.svg')
+    a(target='_blank' href='https://vercel.com/' style='margin-inline:5px')
+      img(src='/img/footer-badge/vercel.svg')
 script.
   if (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {
     function timeInfo() {
@@ -22,8 +45,8 @@ script.
       const hours = Math.floor(timeStamp / 60 / 60 % 24);
       const minutes = Math.floor(timeStamp /60 % 60);
       const seconds = Math.floor(timeStamp % 60);
-      document.getElementById("day-time").innerHTML = `自 2023-06-25 建站以来，小站已苟活 ${days} 天 `;
-      document.getElementById("times").innerHTML = `${hours} 时 ${minutes} 分 ${seconds} 秒 ( =•ω•= )m`;
+      document.getElementById('day-time').innerHTML = `自 2023-06-25 建站以来，小站已苟活 ${days} 天 `;
+      document.getElementById('times').innerHTML = `${hours} 时 ${minutes} 分 ${seconds} 秒 ( =•ω•= )m`;
     }
 
     setInterval(timeInfo, 1000);
