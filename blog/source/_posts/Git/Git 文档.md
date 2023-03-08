@@ -10,21 +10,42 @@ cover: https://s2.loli.net/2023/03/04/QOXpB1aPdmvrsDc.webp
 
 ## 配置 Git
 
-## 设置用户名和邮箱
+### 设置用户名和邮箱
 
 ```shell
 git config --global user.name "mlemontx"
 git config --global user.email "mlemontx@example.com"
 ```
 
-## 查看配置信息
+### 查看配置信息
 
 ```shell
 git config -l
 git config --list
 ```
 
-## 移除凭证
+### 配置代理
+
+```shell
+git config --global http.proxy  'http://127.0.0.1:7890' 
+git config --global https.proxy 'http://127.0.0.1:7890'
+```
+
+### 取消代理
+
+```shell
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
+### 查看代理
+
+```shell
+git config --global --get http.proxy
+git config --global --get https.proxy
+```
+
+### 移除凭证
 
 ```shell
 git config --global --unset credential.helper
@@ -38,7 +59,7 @@ remote: repositorysitory not found.
 
 ## 获取远程仓库
 
-## 克隆远程仓库
+### 克隆远程仓库
 
 ```shell
 git clone https://github.com/username/repository.git
@@ -46,7 +67,7 @@ git clone https://github.com/username/repository.git
 
 ## 管理远程仓库
 
-## 添加远程仓库
+### 添加远程仓库
 
 `git remote add` 命令采用两个参数：
 
@@ -57,19 +78,19 @@ git clone https://github.com/username/repository.git
 git remote add origin https://github.com/username/repository.git
 ```
 
-## 查看当前的远程库
+### 查看当前的远程库
 
 ```shell
 git remote -v
 ```
 
-## 更改远程仓库的 URL
+### 更改远程仓库的 URL
 
 ```shell
 git remote set-url origin https://github.com/username/new_repository.git
 ```
 
-## 重命名远程仓库
+### 重命名远程仓库
 
 `git remote rename` 命令采用两个参数：
 
@@ -80,7 +101,7 @@ git remote set-url origin https://github.com/username/new_repository.git
 git remote rename origin destination
 ```
 
-## 删除远程仓库
+### 删除远程仓库
 
 ```shell
 git remote remove origin
@@ -89,20 +110,21 @@ git remove rm origin
 
 ## 管理分支
 
-## 查看分支
+### 查看分支
 
-### 查看本地已经存在的分支（当前分支会用`*`标记）
+#### 查看本地已经存在的分支（当前分支会用`*`标记）
+
 ```shell
 git branch
 ```
 
-### 查看本地和远程的所有分支（`remotes/` 开头表示远程分支）：
+#### 查看本地和远程的所有分支（`remotes/` 开头表示远程分支）：
 
 ```shell
 git branch -a
 ```
 
-## 本地分支关联远程分支
+### 本地分支关联远程分支
 
 ```shell
 git branch --set-upstream-to=origin/remote_branch your_branch
