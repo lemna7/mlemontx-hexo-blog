@@ -130,6 +130,12 @@ git branch -a
 git branch --set-upstream-to=origin/remote_branch your_branch
 ```
 
+## 撤回
+
+### 已提交撤回
+1. 查看历史提交日志 `git log`
+2. 通过 `git reset HEAD^^` 回退两个版本
+
 ## ERROR
 
 ```txt
