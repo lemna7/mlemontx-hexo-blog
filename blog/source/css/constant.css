@@ -1,3 +1,5 @@
 :root {
     --mlemontx-theme: #0eadc2;
+    --mlemontx-theme-bg: rgba(255,255,255,0.67);
+    --mlemontx-theme-border: 2px solid rgba(0, 255, 255, 0.6);
 }
