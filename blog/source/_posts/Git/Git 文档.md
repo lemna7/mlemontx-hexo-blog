@@ -110,6 +110,12 @@ git remove rm origin
 
 ## 管理分支
 
+### 签出分支
+
+```shell
+git checkout branchName
+```
+
 ### 查看分支
 
 #### 查看本地已经存在的分支（当前分支会用`*`标记）
@@ -128,6 +134,26 @@ git branch -a
 
 ```shell
 git branch --set-upstream-to=origin/remote_branch your_branch
+```
+
+## 版本控制
+
+### 删除本地缓存
+
+```shell
+git rm -r --cached .
+```
+
+### 重新添加
+
+```shell
+git add .
+```
+
+# 查看状态
+
+```shell
+git status
 ```
 
 ## 撤回
