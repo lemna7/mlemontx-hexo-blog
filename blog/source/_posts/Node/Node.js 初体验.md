@@ -1,10 +1,13 @@
 ---
 title: Node.js 初体验
+date: 2023/04/16
+updated: 2023/04/17
 tags:
-- Node
+  - Node
 categories:
-- Node
-date: 2023/04/16 10:03
+  - 技术
+  - Node
+
 ---
 
 ## 使用背景

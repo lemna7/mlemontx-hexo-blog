@@ -5,7 +5,7 @@
 # Site
 title: 柠檬mlemontx
 subtitle: ''
-description: '如果这个世界总是这么简单就好了'
+description: 風在前，無懼
 keywords: 柠檬, mlemontx
 author: 『柠檬mlemontx』
 language: zh-CN
@@ -106,3 +106,36 @@ deploy:
   repo: https://github.com/mlemontx/mlemontx.github.io
   # example, https://github.com/hexojs/hexojs.github.io
   branch: master
+
+# APlayer
+# https://github.com/MoePlayer/hexo-tag-aplayer/blob/master/docs/README-zh_cn.md
+aplayer:
+  meting: true
+  asset_inject: false
+
+# 追番插件
+# https://github.com/HCLonely/hexo-bilibili-bangumi
+bangumi: # 追番设置
+  enable: true
+  source: bili
+  path:
+  vmid: 302224089
+  title: "追番列表"
+  quote: "生命不息，追番不止！"
+  show: 1
+  lazyload: false
+  loading:
+  showMyComment: false
+  pagination: false
+  metaColor:
+  color:
+  webp:
+  progress:
+  extraOrder:
+  proxy:
+    host: "代理host"
+    port: "代理端口"
+  extra_options:
+    top_img: false
+    lazyload:
+      enable: false

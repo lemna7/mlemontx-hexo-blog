@@ -1,9 +1,11 @@
 ---
 title: Redis 学习文档.md
+date: 2023/03/01
 tags:
-- Redis
+  - Redis
 categories:
-- Redis
+  - 技术
+  - Redis
 top_img: https://s2.loli.net/2023/03/05/fiI8uWCs2kSJXHM.webp
 cover: https://s2.loli.net/2023/03/05/fiI8uWCs2kSJXHM.webp
 ---

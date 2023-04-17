@@ -1,9 +1,11 @@
 ---
 title: 搭建 Hexo
+date: 2023/03/01
 tags: 
-    - 静态博客
-categories: 
-    - 静态博客
+  - 静态博客
+categories:
+  - 技术
+  - 静态博客
 top_img: https://s2.loli.net/2023/03/04/iKdrjeWuLOgUxyR.webp
 cover: https://s2.loli.net/2023/03/04/iKdrjeWuLOgUxyR.webp
 ---

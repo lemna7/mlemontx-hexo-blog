@@ -1,9 +1,11 @@
 ---
 title: Linux 常用命令
+date: 2023/03/01
 tags:
-- Linux
+  - Linux
 categories:
-- Linux
+  - 技术
+  - Linux
 top_img: https://s2.loli.net/2023/03/04/dCMLXSRH4F87qhV.webp
 cover: https://s2.loli.net/2023/03/04/dCMLXSRH4F87qhV.webp
 ---

@@ -1,9 +1,11 @@
 ---
 title: Git 文档
+date: 2023/03/01
 tags: 
-    - Git
-categories: 
-    - Git
+  - Git
+categories:
+  - 技术
+  - Git
 top_img: https://s2.loli.net/2023/03/04/QOXpB1aPdmvrsDc.webp
 cover: https://s2.loli.net/2023/03/04/QOXpB1aPdmvrsDc.webp
 ---
