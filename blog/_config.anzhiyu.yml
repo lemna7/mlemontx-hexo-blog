@@ -209,7 +209,7 @@ anchor: false
 toc:
   post: true
   page: false
-  number: true
+  number: false
   expand: false
   style_simple: false # for post
 
@@ -392,12 +392,12 @@ crisp:
 footer:
   owner:
     enable: true
-    since: 2020
+    since: 2023
   custom_text:
   copyright: false # Copyright of theme and framework
   runtime:
     enable: true
-    launch_time: 04/01/2021 00:00:00 # 网站上线时间
+    launch_time: 08/16/2023 00:00:00 # 网站上线时间
     work_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-上班摸鱼中.svg
     work_description: 距离月入25k也就还差一个大佬带我~
     offduty_img: https://npm.elemecdn.com/anzhiyu-blog@2.0.4/img/badge/安知鱼-下班啦.svg
@@ -926,10 +926,10 @@ home_top:
     swiper_js: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper.min.js #swiper js依赖
     swiper_init: https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/swiper/swiper_init.js # swiper初始化方法
   banner:
-    tips: 新品主题
+    tips: 奇葩的事
     title: Theme-AnZhiYu
     image: https://img02.anzhiy.cn/adminuploads/1/2023/03/27/64215d46a1ca6.webp
-    link: https://anzhiy.cn/posts/220c.html
+    link:
 
 # 朋友圈配置
 friends_vue:
