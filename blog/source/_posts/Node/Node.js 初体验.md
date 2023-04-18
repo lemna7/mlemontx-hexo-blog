@@ -376,7 +376,29 @@ exports.act = function () { console.log("以前我没得选，现在我想做一
 2. path 模块是对文件路径进行处理。
 3. http 模块主要用于搭建 HTTP 服务端和客户端，使用 HTTP 服务器或客户端功能必须调用 http 模块。
 
-### 4.5 Express 框架
+### 4.5 demo 初体验
+
+```js
+// 1. 此代码首先引入 Node.js http 模块。
+const http = require('http')
+
+const hostname = '127.0.0.1'
+const port = 3000
+
+// 2. http 的 createServer() 方法创建新的 HTTP 服务器并返回。
+const server = http.createServer((req, res) => {
+    res.statusCode = 200
+    res.setHeader('Content-Type', 'text/plain')
+    res.end('Hello World\n')
+})
+
+// 3. 服务器设置为监听指定的端口和主机名。 当服务器准备好时，则回调函数被调用，在此示例中会通知我们服务器正在运行。
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`)
+})
+```
+
+### 4.6 Express 框架
 
 Node.js 是一个底层平台，在平台之上出来了一系列的框架，这里我用的是 `Express`，不做过多的解释。
 
