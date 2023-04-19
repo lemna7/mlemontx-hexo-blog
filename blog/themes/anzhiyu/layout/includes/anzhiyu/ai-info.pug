@@ -17,7 +17,7 @@ if (description && ai)
       i.anzhiyufont.anzhiyu-icon-arrow-rotate-right
       #ai-tag
         if mode == "tianli"
-          = "tianli GPT"
+          = "Tianli GPT"
         else
           = gptName + " GPT"
     .ai-explanation AI初始化中...
@@ -36,6 +36,8 @@ if (description && ai)
         let mode = "#{mode}"
         // 刷新点击次数
         let refreshNum = 0
+        // 记录上一次传递给aiAbstract的参数
+        let prevParam;
         const aiTitleRefreshIcon = document.querySelector(".ai-title .anzhiyufont.anzhiyu-icon-arrow-rotate-right")
         const explanation = document.querySelector(".ai-explanation");
         const post_ai = document.querySelector(".post-ai-description");
@@ -115,25 +117,29 @@ if (description && ai)
           clearSTO();
           animationRunning = false;
           elapsed = 0;
-          if (df) {
-            explanation.innerHTML = "生成中. . .";
-          } else {
-            explanation.innerHTML = "请等待. . .";
-          }
+          observer.disconnect(); // 暂停上一次监听
+          explanation.innerHTML = df ? "生成中. . ." : "请等待. . .";
           ai_str = str;
           ai_str_length = ai_str.length;
-          observer.disconnect(); // 暂停上一次监听
           observer.observe(post_ai); //启动新监听
         }
-        function aiAbstract(num = #{basicWordCount}) {
-          if (mode == "tianli") {
-            num = Math.max(1000, Math.min(1999, num));
+
+        async function aiAbstract(num = #{basicWordCount}) {
+          i = 0; //重置计数器
+          j = 1;
+          clearSTO();
+          animationRunning = false;
+          elapsed = 0;
+          observer.disconnect(); // 暂停上一次监听
+          if (mode === "tianli") {
+            num = Math.max(10, Math.min(2000, num));
+            console.info(num)
             const options = {
               key: "#{theme.post_head_ai_description.key}",
               Referer: "#{theme.post_head_ai_description.Referer}"
             };
-            const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, num)
-            
+            const truncateDescription = ("#{pageTitle}" + "#{description}").trim().substring(0, num)
+
             const queryParams = `key=${options.key}&content=${truncateDescription}`;
             const requestOptions = {
               method: "GET",
@@ -142,36 +148,44 @@ if (description && ai)
                 Referer: options.Referer
               },
             };
-            fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions)
-              .then(response => response.json())
-              .then(result => {
-                const summary = result.summary.trim();
-                setTimeout(()=>{
-                  aiTitleRefreshIcon.style.opacity = "1";
-                }, 300)
-                startAI(summary);
-              })
-              .catch(error => {
-                console.error(error);
-              });        
+            try {
+              let animationInterval = null
+              if (animationInterval) clearInterval(animationInterval);
+              animationInterval = setInterval(() => {
+                const animationText = "生成中" + ".".repeat(j);
+                explanation.innerHTML = animationText;
+                j = (j % 3) + 1; // 在 1、2、3 之间循环
+              }, 500);
+              const response = await fetch(`https://summary.tianli0.top/?${queryParams}`, requestOptions);
+              const result = await response.json();
+              const summary = result.summary.trim();
+              setTimeout(() => {
+                aiTitleRefreshIcon.style.opacity = "1";
+              }, 300)
+              startAI(summary);
+              clearInterval(animationInterval)
+
+            } catch (error) {
+              console.error(error);
+            }
           } else {
             const strArr = "#{ai}".split(",").map(item => item.trim()); // 将字符串转换为数组，去除每个字符串前后的空格
-            if (strArr.length != 1) {
-              let randomIndex = Math.floor(Math.random() * strArr.length);  // 随机生成一个索引
-              if (randomIndex === lastAiRandomIndex) {  // 如果随机到了上次的索引
-                randomIndex = (randomIndex + 1) % strArr.length;  // 将索引加 1，如果超出数组长度则取模
+            if (strArr.length !== 1) {
+              let randomIndex = Math.floor(Math.random() * strArr.length); // 随机生成一个索引
+              while (randomIndex === lastAiRandomIndex) { // 如果随机到了上次的索引
+                randomIndex = Math.floor(Math.random() * strArr.length); // 再次随机
               }
-              lastAiRandomIndex = randomIndex;  // 更新上次随机到的索引
+              lastAiRandomIndex = randomIndex; // 更新上次随机到的索引
               startAI(strArr[randomIndex]);
             } else {
               startAI(strArr[0])
             }
-            setTimeout(()=>{
+            setTimeout(() => {
               aiTitleRefreshIcon.style.opacity = "1";
             }, 600)
           }
-          
         }
+
         function aiRecommend() {
           i = 0; //重置计数器
           j = 1;
@@ -194,9 +208,16 @@ if (description && ai)
         }
         const ai_btn_item = document.querySelectorAll(".ai-btn-item");
         function Introduce() {
-          startAI("我是文章辅助AI: TianliGPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+          if (mode == "tianli") {
+            startAI("我是文章辅助AI: TianliGPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+          } else {
+            startAI("我是文章辅助AI: #{gptName} GPT，点击下方的按钮，让我生成本文简介、推荐相关文章等。")
+          }
         }
-        const aiFunctions = [Introduce, aiAbstract, aiRecommend, aiGoHome];
+        function aiTitleRefreshIconClick() {
+          aiTitleRefreshIcon.click()
+        }
+        const aiFunctions = [Introduce, aiTitleRefreshIconClick, aiRecommend, aiGoHome];
         ai_btn_item.forEach((item, index) => {
           item.addEventListener("click", () => {
             aiFunctions[index]();
@@ -204,36 +225,61 @@ if (description && ai)
         });
 
         function recommendList() {
-          const relatedPosts = document.querySelector('.relatedPosts');
-          if (!relatedPosts) {
-            return "很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />";
-          }
-          const thumbnail = relatedPosts.querySelectorAll('.relatedPosts-list a');
+          let thumbnail = document.querySelectorAll('.relatedPosts-list a');
           if (!thumbnail.length) {
-            return "很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br />";
+            const cardRecentPost = document.querySelector('.card-widget.card-recent-post'); 
+            if (!cardRecentPost) return '';
+
+            thumbnail = cardRecentPost.querySelectorAll('.aside-list-item a');
+
+            let list = '';
+            for (let i = 0; i < thumbnail.length; i++) {
+              const item = thumbnail[i];
+              list += `<div class="ai-recommend-item"><span class="index">${i + 1}：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${item.title}" data-pjax-state="">${item.title}</a></div>`;
+            }
+            
+            return `很抱歉，无法找到类似的文章，你也可以看看本站最新发布的文章：<br /><div class="ai-recommend">${list}</div>`;
           }
-          let info = `推荐文章：<br />`;
-          info += '<div class="ai-recommend">';
-          thumbnail.forEach((item, index) => {
-            info += `<div class="ai-recommend-item"><span>推荐${
-              index + 1
-            }：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${
-              item.title
-            }" data-pjax-state="">${item.title}</a></div>`;
-          });
-          info += "</div>";
-          return info;
+
+          let list = '';
+          for (let i = 0; i < thumbnail.length; i++) {
+            const item = thumbnail[i];
+            list += `<div class="ai-recommend-item"><span>推荐${i + 1}：</span><a href="javascript:;" onclick="pjax.loadUrl('${item.href}')" title="${item.title}" data-pjax-state="">${item.title}</a></div>`;
+          }
+
+          return `推荐文章：<br /><div class="ai-recommend">${list}</div>`;
         }
+
 
         function changeShowMode() {
           if (mode === "tianli") {
-            mode = "local"
-            document.getElementById("ai-tag").innerHTML = "#{gptName} GPT"
-            aiAbstract(#{basicWordCount})
+            mode = "local";
+            document.getElementById("ai-tag").innerHTML = "#{gptName} GPT";
+            aiAbstract(#{basicWordCount});
           } else {
-            mode = "tianli"
-            document.getElementById("ai-tag").innerHTML = "tianli GPT"
-            aiAbstract(#{basicWordCount})
+            mode = "tianli";
+            document.getElementById("ai-tag").innerHTML = "Tianli GPT";
+
+            const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, #{basicWordCount});
+            let value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+            while (value === prevParam || truncateDescription.length - value === prevParam) {
+              value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+            }
+            aiTitleRefreshIcon.style.opacity = "0.2";
+            aiTitleRefreshIcon.style.transitionDuration = "0.3s";
+            aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
+            if (truncateDescription.length <= 1000) {
+              let param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+              while (param === prevParam) {
+                param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+              }
+              aiAbstract(param);
+              prevParam = param;
+            } else {
+              aiAbstract(value);
+              prevParam = value;
+            }
+            refreshNum++;
           }
         }
 
@@ -250,6 +296,30 @@ if (description && ai)
 
         });
 
+        aiTitleRefreshIcon.addEventListener("click", () => {
+          const truncateDescription = ("#{title}" + "#{description}").trim().substring(0, #{basicWordCount});
+          let value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+          while (value === prevParam || truncateDescription.length - value === prevParam) {
+            value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
+          }
+          aiTitleRefreshIcon.style.opacity = "0.2";
+          aiTitleRefreshIcon.style.transitionDuration = "0.3s";
+          aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
+          if (truncateDescription.length <= 1000) {
+            let param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+            while (param === prevParam) {
+              param = truncateDescription.length - Math.floor(Math.random() * #{randomNum});
+            }
+            aiAbstract(param);
+            prevParam = param;
+          } else {
+            aiAbstract(value);
+            prevParam = value;
+          }
+          showAiBtn();
+          refreshNum++;
+        });
+
         document.getElementById("go-tianli-blog").addEventListener("click", () => {
           window.open("#{btnLink}", "_blank");
         });
@@ -259,16 +329,6 @@ if (description && ai)
             changeShowMode()
           });
         }
-
-        aiTitleRefreshIcon.addEventListener("click", () => {
-          const value = Math.floor(Math.random() * #{randomNum}) + #{basicWordCount};
-          aiTitleRefreshIcon.style.opacity = "0.2";
-          aiTitleRefreshIcon.style.transitionDuration = "0.3s";
-          aiTitleRefreshIcon.style.transform = "rotate(" + 360 * refreshNum + "deg)";
-          aiAbstract(value);
-          showAiBtn();
-          refreshNum++
-        });
 
         function showAiBtn() {
           document.querySelectorAll(".ai-btn-item").forEach(item => {
