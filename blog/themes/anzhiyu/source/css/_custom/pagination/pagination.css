@@ -1,5 +1,5 @@
 /* 分页样式 */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1025px) {
   #pagination a.extend.next:hover,
   #pagination a.extend.prev:hover {
     transform: scale(1.03);
@@ -45,7 +45,7 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    transition: 0.3s;
+    transition: all 0.3s, color 0s;
     position: absolute;
   }
 
@@ -70,11 +70,6 @@
   justify-content: center;
 }
 
-#pagination a.extend.next .pagination_tips_next {
-  margin-left: -32px;
-  transition: 0.3s;
-  opacity: 0;
-}
 #pagination a.extend.next:hover .pagination_tips_next {
   margin-left: 2px;
   opacity: 1;
@@ -102,16 +97,12 @@ a.extend.next {
   width: 100%;
 }
 @media screen and (max-width: 768px) {
-  #pagination a.extend.next .pagination_tips_next,
-  #pagination a.extend.prev .pagination_tips_prev {
-    display: none;
-  }
   #site-name {
     padding: 0 !important;
   }
 }
 
-.layout > div:not(.recent-posts) #pagination .pagination > span,
+/* .layout > div:not(.recent-posts) #pagination .pagination > span,
 .layout > div:not(.recent-posts) #pagination .pagination > a {
   display: inline-block;
   margin: 0 6px;
@@ -119,17 +110,8 @@ a.extend.next {
   height: 2.5em;
   line-height: 2.5em;
   border-radius: 15px;
-}
-#pagination .toPageGroup {
-  display: flex;
-  position: relative;
-  margin: 0;
-  box-shadow: none;
-  width: auto;
-}
-#pagination .toPageGroup:hover {
-  background: none;
-}
+} */
+
 #pagination .pagination input {
   width: 2.5em;
   height: 2.5em;

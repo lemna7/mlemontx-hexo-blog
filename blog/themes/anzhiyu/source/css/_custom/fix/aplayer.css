@@ -6,11 +6,6 @@
   width: 66px;
 }
 
-#page:has(.aplayer):has(.aplayer-body):has(.aplayer-list) #post-comment .tk-comments-container > .tk-comment {
-  border: none;
-  box-shadow: none;
-}
-
 /* 导航栏音乐 */
 @media screen and (max-width: 1024px) {
   #nav-music {
@@ -315,7 +310,7 @@
   color: #ffffffb3;
   line-height: 20px !important;
   height: 20px !important;
-  margin: 20px 0 !important;
+  margin: 20px 0;
 }
 
 #nav-music .aplayer .aplayer-pic {

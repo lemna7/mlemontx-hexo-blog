@@ -1,11 +1,10 @@
 #categoryBar {
   width: 100%;
   display: flex;
-  margin: 1rem auto 0;
 }
 
 #category-bar {
-  padding: 0.5rem 1.5rem;
+  padding: 0.5rem 20px;
   background: var(--anzhiyu-card-bg);
   display: flex;
   white-space: nowrap;
@@ -48,9 +47,6 @@
   border-radius: 8px;
 }
 
-.catalog-list-item.selected .notification-tip {
-  color: var(--font-color);
-}
 .category-bar-more {
   margin-left: 1rem;
   font-weight: bold;
@@ -68,7 +64,7 @@
     margin-bottom: 0;
     position: -webkit-sticky;
     position: sticky;
-    top: 58px;
+    top: 60px;
     z-index: 2;
     align-items: center;
     margin-top: 0;
